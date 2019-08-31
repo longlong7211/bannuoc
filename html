@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Water filling machine</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div style="margin: auto; width: 500px; text-align: center">
+        <div>
+            <h1>Máy rót nước tự động</h1>
+            <h3>thiết kế bởi</h3>
+        </div>
+
+        <div style="display: grid; grid-template-columns: auto auto auto;  ">
+            <div><button id="buttom1" style="width: 60px;height: 40px;border-radius: 5px;background-color: aliceblue ">Nước cam</button></div>
+            <div><button id="buttom2" style="width: 60px;height: 40px;border-radius: 5px;background-color: aliceblue  ">Pepsi</button></div>
+            <div><button id="buttom3" style="width: 60px;height: 40px;border-radius: 5px;background-color: aliceblue  ">Nước lọc</button></div>
+        </div>
+    </div>
+    <script>
+        
+        var nut1 = 0,
+            nut2 = 0,
+            nut3 = 0;
+        $(document).ready(function() {
+            $("#buttom1").click(function() {
+                if (nut1 == 0) {
+                    document.getElementById("buttom1").style.backgroundColor = "aqua";
+                    nut1 = 1;} else {
+                    document.getElementById("buttom1").style.backgroundColor = "aliceblue";
+                    nut1 = 0;}
+                $.get("/camON", function(data, status) {
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+            });
+        });
+        
+
+        $(document).ready(function() {
+            $("#buttom2").click(function() {
+                $.get("demo_test.asp", function(data, status) {
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+            });
+        });
+        
+
+
+        $(document).ready(function() {
+            $("#buttom3").click(function() {
+                $.get("demo_test.asp", function(data, status) {
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
